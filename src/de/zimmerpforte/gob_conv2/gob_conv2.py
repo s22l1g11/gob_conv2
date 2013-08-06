@@ -1,8 +1,10 @@
 #gob conv
 import subprocess
+import os
 directory=input('In welchem Verzeichnis liegt das OpenBook? (Bitte die Anfuehrungsstriche nicht vergessen.)\n')
-directoryModFile=directory+'/mod_test.css'
+
 print 'mod.css wird erstellt!\n',
+directoryModFile=directory+'/mod_test.css'
 modTest = open(directoryModFile, 'w+')
 modTest.write('body {visibility:hidden;background:none;width:100%;padding:0;margin:0;}\n')
 modTest.write('table, tr, td{padding:0;margin:0; width:auto;}\n')
