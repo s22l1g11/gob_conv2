@@ -2,7 +2,12 @@
 import subprocess
 import os
 directory=input('In welchem Verzeichnis liegt das OpenBook? (Bitte die Anfuehrungsstriche nicht vergessen.)\n')
-
+print 'vorlauf wird gestartet!\n',
+directoryDelete=directory+'/delete.sh'
+subprocess.call(['touch', directoryDelete])
+deleteFile = open(directoryDelete, 'w+')
+deleteFile.write('rm -rf ' + directory + '/gob_conv.sh\n')
+deleteFile.write('rm -rf ' + directory + '/mod.css\n')
 print 'mod.css wird erstellt!\n',
 directoryModFile=directory+'/mod_test.css'
 modTest = open(directoryModFile, 'w+')
@@ -14,7 +19,8 @@ modTest.write('dd {display:none;}\n')
 print 'shell script wird erstellt\n',
 directoryGobConvSH = directory+'/gob_conv.sh'
 gobConvSh = open (directoryGobConvSH, 'w+')
-contentVar = 'cat ./common/galileo_open.css > ./user.css\n'
+contentVar = '#!/bin/sh\n'
+contentVar += 'cat ./common/galileo_open.css > ./user.css\n'
 contentVar += 'cat ./mod.css >> ./user.css\n'
 contentVar += 'HTMS="`ls *.html`"\n'
 contentVar += 'for FILE in ${HTMS};\n'
