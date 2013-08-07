@@ -9,7 +9,7 @@ deleteFile = open(directoryDelete, 'w+')
 deleteFile.write('rm -rf ' + directory + '/gob_conv.sh\n')
 deleteFile.write('rm -rf ' + directory + '/mod.css\n')
 print 'mod.css wird erstellt!\n',
-directoryModFile=directory+'/mod_test.css'
+directoryModFile=directory+'/mod.css'
 modTest = open(directoryModFile, 'w+')
 modTest.write('body {visibility:hidden;background:none;width:100%;padding:0;margin:0;}\n')
 modTest.write('table, tr, td{padding:0;margin:0; width:auto;}\n')
@@ -25,20 +25,20 @@ contentVar += 'cat ./mod.css >> ./user.css\n'
 contentVar += 'HTMS="`ls *.html`"\n'
 contentVar += 'for FILE in ${HTMS};\n'
 contentVar += 'do\n'
-contentVar += 'if [ "$FILE" != "stichwort.html" ]; then\n'
+contentVar += '	if [ "$FILE" != "stichwort.html" ]; then\n'
 		# werfe die kommentare raus (alles zwischen <br><hr><a  und </form> )
-contentVar += 'sed \'/<br><hr><a /,/<\/form>/ d\' ./$FILE > ./clean\n'
+contentVar += '		sed \'/<br><hr><a /,/<\/form>/ d\' ./$FILE > ./clean\n'
 		# werfe head und erste tabelle raus
-contentVar += 'sed \'/<html>/,/<\/table>/ d\' ./clean > ./cleaner\n'
+contentVar += '		sed \'/<html>/,/<\/table>/ d\' ./clean > ./cleaner\n'
 		#fuege minimale kopfzeilen ein
-contentVar += 'echo "<html><head><title></title></head><body>" > ./clean\n'
-contentVar += 'cat ./cleaner >> ./clean\n'
+contentVar += '		echo "<html><head><title></title></head><body>" > ./clean\n'
+contentVar += '		cat ./cleaner >> ./clean\n'
 		#saeubere die ausgabe ohne etwas auszugeben
-contentVar += 'tidy -m ./clean 2>/dev/null\n'
+contentVar += '		tidy -m ./clean 2>/dev/null\n'
 		#haenge es der alle beinhaltenden datei an
-contentVar += 'cat ./clean >> ./alle.htm\n'
-contentVar += 'fi'
-contentVar += 'done'
+contentVar += '		cat ./clean >> ./alle.htm\n'
+contentVar += '	fi\n'
+contentVar += 'done\n'
 
 #saeubere ausgabe ohne etwas auszugeben
 contentVar += 'tidy -m ./alle.htm 2>/dev/null\n'
