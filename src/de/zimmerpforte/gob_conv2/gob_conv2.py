@@ -6,7 +6,7 @@ print 'vorlauf wird gestartet!\n',
 directoryDelete=directory+'/delete.sh'
 subprocess.call(['touch', directoryDelete])
 deleteFile = open(directoryDelete, 'w+')
-deleteFile.write('rm -rf ' + directory + '/gob_conv.sh\n')
+deleteFile.write('rm -rf ' + directory + '/gob_conv2.sh\n')
 deleteFile.write('rm -rf ' + directory + '/mod.css\n')
 print 'mod.css wird erstellt!\n',
 directoryModFile=directory+'/mod.css'
@@ -17,7 +17,7 @@ modTest.write('div.main, .box {visibility:visible;margin:0;padding:0;width:100%;
 modTest.write('.box {border:none; margin-top:-100; padding-bottom:50px;}\n')
 modTest.write('dd {display:none;}\n')
 print 'shell script wird erstellt\n',
-directoryGobConvSH = directory+'/gob_conv.sh'
+directoryGobConvSH = directory+'/gob_conv2.sh'
 gobConvSh = open (directoryGobConvSH, 'w+')
 contentVar = '#!/bin/sh\n'
 contentVar += 'cat ./common/galileo_open.css > ./user.css\n'
@@ -61,6 +61,7 @@ contentVar += 'rm ./cleaner\n'
 contentVar += 'rm ./alle.htm\n'
 contentVar += 'rm ./user.css\n'
 gobConvSh.write(contentVar)
+subprocess.call(['chmod a+x', directory+'/gob_conv2.sh'])
 #subprocess.call(['bash','./'+directoryGobConvSH])
 print 'pdf sollte nun erstellt worden sein!\n',
 print 'vorgang wird abgeschlossen!\n',
