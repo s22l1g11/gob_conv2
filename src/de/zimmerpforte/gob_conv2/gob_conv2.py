@@ -2,7 +2,7 @@
 import subprocess
 import os
 directory=input('In welchem Verzeichnis liegt das OpenBook? (Bitte die Anfuehrungsstriche nicht vergessen.)\n')
-print 'system läuft an!\n',
+print 'system laeuft an!\n',
 #mod.css wird erstellt
 print 'mod.css wird erstellt!\n',
 directoryModFile=directory+'/mod.css'
@@ -52,7 +52,7 @@ contentVar += 'rm ./cleaner\n'
 contentVar += 'rm ./alle.htm\n'
 contentVar += 'rm ./user.css\n'
 gobConvSh.write(contentVar)
-#erstelle ein script zum ausfuehren von gob_conv2.sh, sowie zum anschließdenden aufraeumen
+#erstelle ein script zum ausfuehren von gob_conv2.sh, sowie zum anschlieszenden aufraeumen
 print 'execution script wird erstellt\n',
 directoryExecutionSH = directory+'/exe.sh'
 exeSh = open (directoryExecutionSH, 'w+')
