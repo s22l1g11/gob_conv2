@@ -1,7 +1,6 @@
 #gob conv
 import subprocess
 import os
-import time
 directory=input('In welchem Verzeichnis liegt das OpenBook? (Bitte die Anfuehrungsstriche nicht vergessen.)\n')
 print 'system laeuft an!\n',
 #mod.css wird erstellt
@@ -63,15 +62,10 @@ contentVar += './gob_conv2.sh\n'
 contentVar += 'rm ./gob_conv2.sh\n'
 contentVar += 'rm ./mod.css\n'
 exeSh.write(contentVar)
-exeSH = directoryExecutionSH
 #ermoegliche die benutzung von exe.sh
 subprocess.call(['chmod', 'a+x', directoryExecutionSH])
-print 'Kurzes warten vor dem naechsten Schritt!\n',
-#time.sleep(5)
-print exeSH+'\n',
-os.execvp(exeSH, '')
 print 'execution script wird nun ausgefuehrt\n',
 print 'pdf sollte nun erstellt worden sein!\n',
 #loeschen von exe.sh
-#subprocess.call(['rm', exeSh])
+subprocess.call(['rm','-rf', directoryExecutionSh])
 print 'vorgang ist abgeschlossen\n',
