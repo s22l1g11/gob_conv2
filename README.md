@@ -21,9 +21,9 @@ Simply type:
 </ul><br><br>
 How do I start the script?<br>
 At first you have to unzip your galileo-openbook via Terminal, or GUI!<br>
-Afterwards you enter the directory of gob_conv2 via <code>cd Downloads/gob_conv2_python/src/de/zimmerpforte/gob_conv2/</code>.<br>
-Than simply execute gob_conv2.py via <code>pyhton gob_conv2.py</code>!<br>
-The script will ask you where your unzipped galile-openbook is placed, simply copy and paste the directory (with '') in your terminal and hit ENTER/RETURN.<br>
+Afterwards you change to the directory of gob_conv2 via <code>cd Downloads/gob_conv2_python/src/de/zimmerpforte/gob_conv2/</code>.<br>
+Than simply execute gob_conv2.py via <code>python gob_conv2.py</code>!<br>
+The script will ask you where your unzipped galileo-openbook is placed, simply copy and paste the directory (with '') in your terminal and hit ENTER/RETURN.<br>
 Done! Your galileo-openbook will be created in less than a minute!<br>
 <br>
 Greetings,<br>
