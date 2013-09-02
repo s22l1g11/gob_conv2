@@ -13,6 +13,7 @@ modTest.write('table, tr, td{padding:0;margin:0; width:auto;}\n')
 modTest.write('div.main, .box {visibility:visible;margin:0;padding:0;width:100%;}\n')
 modTest.write('.box {border:none; margin-top:-100; padding-bottom:50px;}\n')
 modTest.write('dd {display:none;}\n')
+modTest.close()
 #gob_conv2.sh wird erstellt
 print 'gob_conv2.sh wird erstellt\n',
 directoryGobConvSH = directory+'/gob_conv2.sh'
@@ -53,24 +54,26 @@ contentVar += 'rm ./cleaner\n'
 contentVar += 'rm ./alle.htm\n'
 contentVar += 'rm ./user.css\n'
 gobConvSh.write(contentVar)
+gobConvSh.close()
 #erstelle ein script zum ausfuehren von gob_conv2.sh, sowie zum anschlieszenden aufraeumen
 print 'execution script wird erstellt\n',
 directoryExecutionSH = directory+'/exe.sh'
 exeSh = open (directoryExecutionSH, 'w+')
-contentVar = 'chmod a+x '+directoryGobConvSH+'\n'
+contentVar = '#!/bin/sh\n'
+contentVar += 'chmod a+x '+directoryGobConvSH+'\n'
 contentVar += 'cd '+directory+'\n'
 contentVar += './gob_conv2.sh\n'
 contentVar += 'rm ./gob_conv2.sh\n'
 contentVar += 'rm ./mod.css\n'
 exeSh.write(contentVar)
+exeSh.close()
 exeSH = directoryExecutionSH
 #ermoegliche die benutzung von exe.sh
 subprocess.call(['chmod', 'a+x', directoryExecutionSH])
 print 'Kurzes warten vor dem naechsten Schritt!\n',
 #time.sleep(5)
-print exeSH+'\n',
-os.execvp(exeSH, '')
 print 'execution script wird nun ausgefuehrt\n',
+subprocess.call([exeSH], shell=True,)
 print 'pdf sollte nun erstellt worden sein!\n',
 #loeschen von exe.sh
 #subprocess.call(['rm', exeSh])
